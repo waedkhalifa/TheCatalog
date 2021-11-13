@@ -50,7 +50,6 @@ def updateQuantity(id):
     for i in data['books']:
         if int(id) == i['id']:
             if key_to_update < 0:
-                displayed.append({'quantity': key_to_update})
                 f.close()
                 return 'NOT ACCEPTABLE', 406
 
