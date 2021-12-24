@@ -19,7 +19,6 @@ def searchByBookTopic(topic):
     if len(displayed) == 0:
         return '404 ERROR, NOT FOUND', 404
     else:
-        print('dddddoneeee')
         return jsonify(displayed)
 
 
@@ -42,7 +41,7 @@ def searchByBookId(id):
 def updateQuantity(id):
     update_req = request.get_json()
     displayed = []
-    arr=[]
+
     f = open('FourEntries.json', )
     data = json.load(f)
 
