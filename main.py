@@ -61,7 +61,7 @@ def updateQuantity(id):
                 displayed.append({'id': i['id'], 'price': i['price'], 'quantity': i['quantity'], 'title': i['title'],'topic': i['topic']})
 
                 #requests.put('http://192.168.56.104:7777/updateinfo/{}'.formate(id),json=(displayed))
-                request.post('http://192.168.56.102:6000/invalidate', json=(displayed))
+                requests.post('http://192.168.56.102:6000/invalidate', json=(displayed))
     f.close()
 
     FEfile = open("FourEntries.json", "w")
