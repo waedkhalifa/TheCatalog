@@ -42,6 +42,7 @@ def searchByBookId(id):
 def updateQuantity(id):
     update_req = request.get_json()
     displayed = []
+    arr=[]
     f = open('FourEntries.json', )
     data = json.load(f)
 
@@ -60,7 +61,7 @@ def updateQuantity(id):
                 i['quantity'] = key_to_update
                 displayed.append({'id': i['id'], 'price': i['price'], 'quantity': i['quantity'], 'title': i['title'],'topic': i['topic']})
 
-                requests.put('http://192.168.56.104:7777/updateinfo/{}'.formate(id),json=(displayed))
+                requests.put('http://192.168.56.104:7777/update/{}'.formate(id),json=(key_to_update))
                 requests.post('http://192.168.56.102:6000/invalidate', json=(displayed))
     f.close()
 
@@ -68,8 +69,21 @@ def updateQuantity(id):
     json.dump(data, FEfile)
     FEfile.close()
 
-    return jsonify(displayed),200
-
+    return jsonify(displayed)
+@app.route('/update/<int:id>',methods=['PUT'])
+def update2(id):
+    update_req =request.get_json()
+    f=open('FourEntries.json','r')
+    data=json.load(f)
+    for i in  data['books']:
+        if int(id) == i['id']:
+            i['quantity'] = update_req
+            
+    f.close()
+    FEfile = open("FourEntries.json", "w")
+    json.dump(data, FEfile)
+    FEfile.close()
+    return ''
 
 if __name__ == '__main__':
     app.run(debug=True, host='0.0.0.0', port=7000)
