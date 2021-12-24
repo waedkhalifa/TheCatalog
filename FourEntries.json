@@ -21,5 +21,26 @@
 "price": 93,
 "topic": "undergraduate school",
   "quantity": 14
-}]}
+},
+{"id": 5, 
+"title": "How to finish Project 3 on time", 
+"price": 70,
+"topic": "distributed systems",
+  "quantity": 17
+},
+{"id": 6, 
+"title": "Why theory classes are so hard", 
+"price": 55,
+"topic": "undergraduate school",
+  "quantity": 8
+},
+{"id": 7, 
+"title": "Spring in the Pioneer Valley", 
+"price": 24,
+"topic": "undergraduate school",
+  "quantity": 5
+}
+	  
+	  
+	  ]}
 
